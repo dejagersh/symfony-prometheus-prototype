@@ -20,5 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    Prometheus\CollectorRegistry: '@prometheus_metrics_bundle.collector_registry'
+    # controllers are imported separately to make sure services can be injected
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
