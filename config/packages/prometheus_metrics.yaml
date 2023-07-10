@@ -1,0 +1,16 @@
+artprima_prometheus_metrics:
+    namespace: myapp
+    storage:
+        url: '%env(REDIS_URL)%'
+
+    ignored_routes:
+        - prometheus_bundle_prometheus
+        - _wdt
+
+    disable_default_metrics: false
+    disable_default_promphp_metrics: false
+    enable_console_metrics: true
+
+when@test:
+    artprima_prometheus_metrics:
+        storage: in_memory

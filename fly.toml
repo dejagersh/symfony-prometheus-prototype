@@ -1,0 +1,19 @@
+app = "symfony-prometheus"
+primary_region = "ams"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 0
+
+[env]
+  APP_ENV="prod"
+  APP_RUNTIME='\App\FlySymfonyRuntime'
+  REDIS_URL='redis://default:7f7c63e8235a468792e4114ac4750213@fly-prometheus-metrics.upstash.io'
+  MESSENGER_TRANSPORT_DSN='doctrine://default'
+
+[metrics]
+  port=9000
+  path='/metrics/prometheus'

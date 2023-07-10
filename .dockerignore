@@ -1,0 +1,79 @@
+# flyctl launch added from .gitignore
+
+###> symfony/framework-bundle ###
+*.env*
+config/secrets/prod/prod.decrypt.private.php
+public/bundles
+var
+vendor
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+phpunit.xml
+**/.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+**/.phpunit.result.cache
+phpunit.xml
+###< symfony/phpunit-bridge ###
+
+# flyctl launch added from .idea/.gitignore
+# Default ignored files
+.idea/shelf
+.idea/workspace.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests
+# Datasource local storage ignored files
+.idea/dataSources
+.idea/dataSources.local.xml
+
+# flyctl launch added from vendor/artprima/prometheus-metrics-bundle/.gitignore
+vendor/artprima/prometheus-metrics-bundle/**/.idea
+vendor/artprima/prometheus-metrics-bundle/**/composer.lock
+vendor/artprima/prometheus-metrics-bundle/vendor
+
+vendor/artprima/prometheus-metrics-bundle/**/.php_cs.cache
+vendor/artprima/prometheus-metrics-bundle/**/.php-cs-fixer.cache
+vendor/artprima/prometheus-metrics-bundle/**/coverage
+
+vendor/artprima/prometheus-metrics-bundle/.phpcs-cache
+vendor/artprima/prometheus-metrics-bundle/phpcs.xml
+
+vendor/artprima/prometheus-metrics-bundle/.phpunit.result.cache
+
+# flyctl launch added from vendor/psr/container/.gitignore
+vendor/psr/container/**/composer.lock
+vendor/psr/container/**/composer.phar
+vendor/psr/container/vendor
+
+# flyctl launch added from vendor/psr/event-dispatcher/.gitignore
+vendor/psr/event-dispatcher/vendor
+vendor/psr/event-dispatcher/**/composer.lock
+
+# flyctl launch added from vendor/sebastian/resource-operations/.gitignore
+vendor/sebastian/resource-operations/.idea
+vendor/sebastian/resource-operations/.php_cs.cache
+vendor/sebastian/resource-operations/build/FunctionSignatureMap.php
+vendor/sebastian/resource-operations/composer.lock
+vendor/sebastian/resource-operations/vendor
+vendor/sebastian/resource-operations/.phpunit.result.cache
+
+# flyctl launch added from vendor/sebastian/version/.gitignore
+vendor/sebastian/version/.php_cs.cache
+vendor/sebastian/version/.idea
+
+# flyctl launch added from vendor/symfony/monolog-bundle/.gitignore
+vendor/symfony/monolog-bundle/**/vendor
+vendor/symfony/monolog-bundle/**/composer.phar
+vendor/symfony/monolog-bundle/**/composer.lock
+vendor/symfony/monolog-bundle/**/phpunit.xml
+vendor/symfony/monolog-bundle/**/.phpunit.result.cache
+
+# flyctl launch added from vendor/twig/extra-bundle/.gitignore
+vendor/twig/extra-bundle/**/vendor
+vendor/twig/extra-bundle/**/var
+vendor/twig/extra-bundle/**/composer.lock
+vendor/twig/extra-bundle/**/phpunit.xml
+vendor/twig/extra-bundle/**/.phpunit.result.cache
+fly.toml

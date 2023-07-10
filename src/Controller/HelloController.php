@@ -7,13 +7,14 @@ use App\Message\WhoopMessage;
 use Prometheus\CollectorRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HelloController extends AbstractController
 {
     #[Route('/')]
-    public function index(CollectorRegistry $collectionRegistry)
+    public function index(CollectorRegistry $collectionRegistry, Request $request)
     {
         $collectionRegistry->getOrRegisterCounter(
             'app',
