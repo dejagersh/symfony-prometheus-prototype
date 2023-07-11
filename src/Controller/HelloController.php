@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Message\ExportReportMessage;
 use App\Message\SendEmailMessage;
-use App\Message\WhoopMessage;
+use App\Message\DeleteAccountMessage;
 use Prometheus\CollectorRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -31,8 +32,20 @@ class HelloController extends AbstractController
     #[Route('/dispatch')]
     public function dispatch(MessageBusInterface $messageBus)
     {
-        for ($i = 0; $i < 10_000; $i++) {
-            $messageBus->dispatch(new SendEmailMessage());
+        for ($i = 0; $i < 1_000; $i++) {
+            $k = random_int(0, 2);
+
+            switch ($k) {
+                case 0:
+                    $messageBus->dispatch(new SendEmailMessage());
+                    break;
+                case 1:
+                    $messageBus->dispatch(new DeleteAccountMessage());
+                    break;
+                case 2:
+                    $messageBus->dispatch(new ExportReportMessage());
+                    break;
+            }
         }
 
         return new JsonResponse([
@@ -43,7 +56,7 @@ class HelloController extends AbstractController
     #[Route('/dispatch2')]
     public function dispatchTwo(MessageBusInterface $messageBus)
     {
-        $messageBus->dispatch(new WhoopMessage());
+        $messageBus->dispatch(new DeleteAccountMessage());
 
         return new JsonResponse([
             'message' => 'Dispatched!',

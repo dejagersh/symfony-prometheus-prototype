@@ -16,28 +16,28 @@ class MetricsSubscriber implements EventSubscriberInterface
 
     public function onMessageSentToTransportEvent(SendMessageToTransportsEvent $event): void
     {
-        $this->collectorRegistry->getOrRegisterCounter(
+        $counter = $this->collectorRegistry->getOrRegisterCounter(
             'app',
             'messages_sent_to_transport',
             'Messages sent to transport',
             ['message']
-        )->inc([
-            'all',
-            (new ReflectionClass($event->getEnvelope()->getMessage()))->getShortName()
-        ]);
+        );
+
+        $counter->inc(['all']);
+        $counter->inc([(new ReflectionClass($event->getEnvelope()->getMessage()))->getShortName()]);
     }
 
     public function onMessageHandledEvent(WorkerMessageHandledEvent $event): void
     {
-        $this->collectorRegistry->getOrRegisterCounter(
+        $counter = $this->collectorRegistry->getOrRegisterCounter(
             'app',
             'messages_handled',
             'Messages handled by worker',
             ['message']
-        )->inc([
-            'all',
-            (new ReflectionClass($event->getEnvelope()->getMessage()))->getShortName()
-        ]);
+        );
+
+        $counter->inc(['all']);
+        $counter->inc([(new ReflectionClass($event->getEnvelope()->getMessage()))->getShortName()]);
     }
 
     public static function getSubscribedEvents(): array

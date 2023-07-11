@@ -2,7 +2,7 @@
 
 namespace App\Message;
 
-final class WhoopMessage
+final class ExportReportMessage
 {
     /*
      * Add whatever properties and methods you need
